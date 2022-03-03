@@ -15,15 +15,19 @@ To properly run this software, several Python libraries are needed:
 - skikit-image tested on 0.17.2
 - opencv tested on 4.5.1
 
+# Data
+Demo data is provided in [./data](./data). The data used in the paper is available on the Univesrity of Edinburgh's DataShare. 
+More specifically, data in figure 1, 2 (last 3 rows), 4, 6, and 7 is available [here](https://doi.org/10.7488/ds/3099). 
+Data in figure 2 (first 2 rows), 3 and 5 is available [here](). 
+Code for lifetime reconstruction is available [here](https://doi.org/10.7488/ds/3099). 
+More specifically, the Code_Full_Spectral_FLIM.zip contains code for the principle analysis of FS-FLIM datacubes along with further code for the extraction of custom regions of interest from the analysed data. The folders contain "readme" files on how to use the code along with extensive comments in the the code itself. 
+
 # Get Started
 ## Installation
 Clone this repo:
 >git clone https://github.com/qiangwang57/coreg_flim_histology
 > 
 > cd coreg_flim_histology
-
-## Data
-Demo data is provided in ./data. The data used in the paper is available on the Univesrity of Edinburgh's DataShare. More specifically, data in figure 1, 2 (last 3 rows), 4, 6, and 7 is available [here](https://doi.org/10.7488/ds/3099). Data in figure 2 (first 2 rows), 3 and 5 will be made available [here]().
 
 ## Start main GUI
 - Using command
