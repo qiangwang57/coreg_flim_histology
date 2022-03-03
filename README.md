@@ -49,6 +49,7 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 ![Homography regression viewer](./images/regression.png)
 - Play with the parameters listed on the GUI and check the blending result for an optimal one. Using gray images is recommended for better registration results.
 - Click "Start Regression" to see the result, and "Save Results" which gives a popup window for saving parameters as below:
+
 ![Save Results](./images/save_results.png)
 
 # Citation
