@@ -4,23 +4,22 @@
 
 This software is for co-registering full-spectral label-free autofluorescence lifetime images (FS-FLIM) with histology images, in assistance with deep learning. The underlying idea is translating FLIM images to synthetic histology images which are used later for co-registration. The detailed information can be found in [our paper](https://arxiv.org/abs/2202.07755)
 
-# Prerequisites
-The software developed on Windows10, but expected to run on other OS as no OS-dependent code.
-
-To properly run this software, several Python libraries are needed:
-- python teston 3.8
-- pytorch tested on 1.9.0 and 1.10.0
-- pyqt tested on 5.15.2
-- kornia tested on 0.5.2
-- skikit-image tested on 0.17.2
-- opencv tested on 4.5.1
-
 # Data
 Demo data is provided in [./data](./data). The data used in the paper is available on the Univesrity of Edinburgh's DataShare. 
 More specifically, data in figure 1, 2 (last 3 rows), 4, 6, and 7 is available [here](https://doi.org/10.7488/ds/3099). 
 Data in figure 2 (first 2 rows), 3 and 5 is available [here](). 
 Code for lifetime reconstruction is available [here](https://doi.org/10.7488/ds/3099). 
 More specifically, the Code_Full_Spectral_FLIM.zip contains code for the principle analysis of FS-FLIM datacubes along with further code for the extraction of custom regions of interest from the analysed data. The folders contain "readme" files on how to use the code along with extensive comments in the the code itself. 
+
+# Prerequisites
+The software was developed on Windows10, but expected to run on other OS as no OS-dependent code.
+To properly run this software, several Python libraries are needed:
+- python tested on 3.8
+- pytorch tested on 1.9.0 and 1.10.0
+- pyqt tested on 5.15.2
+- kornia tested on 0.5.2
+- skikit-image tested on 0.17.2
+- opencv tested on 4.5.1
 
 # Get Started
 ## Installation
