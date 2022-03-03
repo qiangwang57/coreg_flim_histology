@@ -32,30 +32,41 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 - Alternatively and **recommended**, open the folder with [pycharm](https://www.jetbrains.com/pycharm/), and run the main.py.
 
 ## Open FLIM image viewer
-- Click the button "Open FLIM Image Viewer", and below window will show up
 
 ![FLIM image viewer](./images/flim_viewer.png)
+
+- Click the button "Open FLIM Image Viewer" to open FLIM Image Viewer as the above
 - Select a FLIM image, e.g., ./data/test_lifetime.png
 - Load pretrained [CycleGAN generator](https://github.com/aitorzip/PyTorch-CycleGAN). Note that this is not the official implementation. A pretrained one is at ./data/pretrained_generator.pth
 - Load mask (optional) at ./data/test_mask.png, and slide "Custom Mask Threshold" for an optimal binary mask
 - Click "Generate" button on the left part of the GUI to generate synthetic histology images
 
 ## Locate histology patch
-- Go back to the main GUI and click "Open Histology Image" to open an histolgoy image to be registered. The synthetic histology image is displayed in the lower-right corner.
 
 ![Histology image viewer](./images/histo_viewer.png)
+
+- Go back to the main GUI and click "Open Histology Image" to open an histolgoy image to be registered. The synthetic histology image is displayed in the lower-right corner.
 - Open an histology image, e.g., ./data/test_histo.png
 - Select the patch slighly larger than the synthesised histology image. The selected area will be highlighted in sky blue
 - After the selection, click "Select Square Patch" to confirm your selection. The selected patch will be displayed at the upper right. You can change the background by ticking "Change Selected Patch background to black".
 
 ## Homography regression viewer
-- Go back to the main GUI and click "Open Homography Regression Viewer" to perform homography regression, where the synthetic (first) and selected histology (second) images will be displayed. The third plot is the blending of transformed synthetic and real histology images.
 
 ![Homography regression viewer](./images/regression.png)
+
+- Go back to the main GUI and click "Open Homography Regression Viewer" to perform homography regression, where the synthetic (first) and selected histology (second) images will be displayed. The third plot is the blending of transformed synthetic and real histology images.
 - Play with the parameters listed on the GUI and check the blending result for an optimal one. Using gray images is recommended for better registration results.
 - Click "Start Regression" to see the result, and "Save Results" which gives a popup window for saving parameters as below:
 
 ![Save Results](./images/save_results.png)
+
+## Stitch viewer
+
+![Stitch Viewer](./images/stitch_viewer.png)
+
+- Go back to the main GUI and click "Open Stitching Viewer" to stitch all tiles previously registered
+- Histology image to be selected is used as the template for the stitching, which can be blended with the stiched tiles
+- Spectral FLIM data loaded from .mat files is extracted at the specific bandwidth, with a custom format (averaged intensity, intensity, lifetime, or weighted lifetime) and colourmap (gray, jet, hot, or copper)
 
 # Citation
 If you find this software is useful, please cite:
