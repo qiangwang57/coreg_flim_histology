@@ -17,6 +17,7 @@ To properly run this software, several Python libraries are needed:
 ## Installation
 Clone this repo:
 >git clone https://github.com/qiangwang57/coreg_flim_histology
+> 
 > cd coreg_flim_histology
 
 ## Data
