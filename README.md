@@ -68,6 +68,8 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 - Histology image to be selected is used as the template for the stitching, which can be blended with the stiched tiles
 - Spectral FLIM data loaded from .mat files is extracted at the specific bandwidth, with a custom format (averaged intensity, intensity, lifetime, or weighted lifetime) and colourmap (gray, jet, hot, or copper)
 
+**Note**: for the data shown above, the code at line 499 and 500 in [StitchViewer.py](https://github.com/qiangwang57/coreg_flim_histology/blob/553bfc9ebc60492141fdb41e3f44d8ea562d7b6d/gui/StitchViewer.py#L499-L500) needs to be uncommented. For the data in figure 6 in the paper, [those two lines](https://github.com/qiangwang57/coreg_flim_histology/blob/553bfc9ebc60492141fdb41e3f44d8ea562d7b6d/gui/StitchViewer.py#L499-L500) need to be commented out.
+
 # Citation
 If you find this software is useful, please cite:
 >Wang, Q., Fernandes, S., Williams, G.O., Finlayson, N., Akram, A.R., Dhaliwal, K., Hopgood, J.R. and Vallejo, M., 2022. Deep Learning-Assisted Co-registration of Full-Spectral Autofluorescence Lifetime Microscopic Images with H&E-Stained Histology Images. arXiv preprint arXiv:2202.07755.
