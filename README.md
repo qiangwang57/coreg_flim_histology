@@ -1,5 +1,7 @@
 # Introduction
+
 ![GUI](./images/gui.png)
+
 This software is for co-registering full-spectral label-free autofluorescence lifetime images (FS-FLIM) with histology images, in assistance with deep learning. The underlying idea is translating FLIM images to synthetic histology images which are used later for co-registration. The detailed information can be found in [our paper](https://arxiv.org/abs/2202.07755)
 
 # Prerequisites
@@ -31,6 +33,7 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 
 ## Open FLIM image viewer
 - Click the button "Open FLIM Image Viewer", and below window will show up
+
 ![FLIM image viewer](./images/flim_viewer.png)
 - Select a FLIM image, e.g., ./data/test_lifetime.png
 - Load pretrained [CycleGAN generator](https://github.com/aitorzip/PyTorch-CycleGAN). Note that this is not the official implementation. A pretrained one is at ./data/pretrained_generator.pth
@@ -39,6 +42,7 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 
 ## Locate histology patch
 - Go back to the main GUI and click "Open Histology Image" to open an histolgoy image to be registered. The synthetic histology image is displayed in the lower-right corner.
+
 ![Histology image viewer](./images/histo_viewer.png)
 - Open an histology image, e.g., ./data/test_histo.png
 - Select the patch slighly larger than the synthesised histology image. The selected area will be highlighted in sky blue
@@ -46,6 +50,7 @@ Demo data is provided in ./data. The data used in the paper is available on the 
 
 ## Homography regression viewer
 - Go back to the main GUI and click "Open Homography Regression Viewer" to perform homography regression, where the synthetic (first) and selected histology (second) images will be displayed. The third plot is the blending of transformed synthetic and real histology images.
+
 ![Homography regression viewer](./images/regression.png)
 - Play with the parameters listed on the GUI and check the blending result for an optimal one. Using gray images is recommended for better registration results.
 - Click "Start Regression" to see the result, and "Save Results" which gives a popup window for saving parameters as below:
