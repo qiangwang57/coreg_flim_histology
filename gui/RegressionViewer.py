@@ -27,6 +27,7 @@ from skimage import io, transform
 from skimage.color import rgba2rgb, rgb2gray
 from torch.optim.lr_scheduler import StepLR
 
+from gui import utils
 from gui.SaveRegressionResultsViewer import SaveRegressionResultsViewer
 from gui.utils import np2pixmap, image2tensor, tensor2image, to_gray, warp_image
 from gui.models import HomoParamRegression
@@ -463,15 +464,16 @@ class RegressionViewer(QWidget):
                 if self.homo_matrix is not None:
                     fake_histo_image_processed_warped = warp_image(fake_histo_image_processed, self.homo_matrix)
                     fake_histo_image_processed_warped = transform.resize(fake_histo_image_processed_warped, self.original_fake_histo_image.shape[:2])
-                    if fake_histo_image_processed_warped.dtype == np.float:
+                    if fake_histo_image_processed_warped.dtype == float:
                         fake_histo_image_processed_warped = (fake_histo_image_processed_warped*256).astype(np.uint8)
                 else:
                     fake_histo_image_processed_warped = fake_histo_image_processed
 
                 self.blending_factor = self.blendingFactorSlider.value()/100
                 self.label_blendingFactorSliderLabel.setText("Blending factor: {:.2f}".format(self.blending_factor))
-                blending = (1-self.blending_factor) * histology_patch_processed + self.blending_factor * fake_histo_image_processed_warped
-                blending = blending.astype(np.uint8)
+                # blending = (1-self.blending_factor) * histology_patch_processed + self.blending_factor * fake_histo_image_processed_warped
+                # blending = blending.astype(np.uint8)
+                blending = utils.colorize(fake_histo_image_processed_warped, histology_patch_processed)
                 # self.blendingView.setPixmap(np2pixmap(blending.astype(np.uint8)).scaled(300, 300, Qt.KeepAspectRatio))
                 self._update_display(blending.astype(np.uint8), self.blendingView)
 
@@ -636,6 +638,7 @@ class RegressionViewer(QWidget):
             self.wsiPatchView.setPixmap(np2pixmap(self.original_histology_patch).scaled(300, 300, Qt.KeepAspectRatio))
         self.update_gui()
 
+
 class PlotWorker(QObject):
     finished = pyqtSignal()
 
@@ -686,9 +689,10 @@ class PlotWorker(QObject):
             epochs.append(epoch)
             losses.append(loss.item())
 
-            blending = tensor2image(self.parent.blending_factor * moving_image_transformed + (1 - self.parent.blending_factor) * ref_image)
+            # blending = tensor2image(self.parent.blending_factor * moving_image_transformed + (1 - self.parent.blending_factor) * ref_image)
             # blending = transform.resize(blending, self.parent.histology_patch_processed.shape[:2])
-            blending = (blending*255).astype(np.uint8)
+            # blending = (blending*255).astype(np.uint8)
+            blending = utils.colorize(tensor2image(moving_image_transformed), tensor2image(ref_image))
             # self.parent.blendingView.setPixmap(np2pixmap(blending).scaled(300, 300, Qt.KeepAspectRatio))
             self.parent._update_display(blending, self.parent.blendingView)
             self.parent.blendingView.update()

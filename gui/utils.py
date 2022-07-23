@@ -176,6 +176,27 @@ class Logger():
         return images
 
 
+def colorize(flim, histo, size=256):
+    def preprocess(img):
+        if img.max() <= 1:
+            img = (img * 255).astype(np.uint8)
+        if len(img.shape) > 2:
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        img = cv2.resize(img, (size, size))
+        return img
+
+    flim_p = preprocess(flim)
+    flim_rgb = np.zeros((flim_p.shape + (3,)), dtype=flim_p.dtype)
+    flim_rgb[:, :, 1] = flim_p
+
+    histo_p = preprocess(histo)
+    histo_rgb = np.zeros((histo_p.shape + (3,)), dtype=histo_p.dtype)
+    histo_rgb[:, :, 0] = histo_p
+    histo_rgb[:, :, 2] = histo_p
+
+    return flim_rgb + histo_rgb
+
+
 if __name__ == "__main__":
 
 
